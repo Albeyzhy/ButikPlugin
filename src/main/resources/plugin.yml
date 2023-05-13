@@ -1,0 +1,21 @@
+name: Butik
+prefix: Butik
+version: '${project.version}'
+main: dk.yzhy.Butik
+api-version: 1.8
+depend: []
+softdepend: [PlaceholderAPI, Vault]
+authors: [ yzhy ]
+description: Butik plugin, udviklet til mintprison.
+commands:
+  buy:
+    permission: butik.use
+    aliases: butik
+    usage: /buy
+  coins:
+    permission: coins.use
+    aliases: [coin, c]
+    usage: /coins
+
+
+

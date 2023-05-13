@@ -1,0 +1,38 @@
+Prefix: '&e&lBUTIK'
+ChatPrefix: '&8&l[ &e&lBUTIK &8&l]'
+CoinPrefix: '&8&l[ &e&lCOINS &8&l]'
+Heads:
+  Ranks:
+    Preview: 'http://textures.minecraft.net/texture/bc38550b5dac9efafa889945aec3bcd178cb880806eb7e712d1bd96a61df23f6'
+    Twix: 'http://textures.minecraft.net/texture/bc38550b5dac9efafa889945aec3bcd178cb880806eb7e712d1bd96a61df23f6'
+    Slik: 'http://textures.minecraft.net/texture/bc38550b5dac9efafa889945aec3bcd178cb880806eb7e712d1bd96a61df23f6'
+    Mint: 'http://textures.minecraft.net/texture/bc38550b5dac9efafa889945aec3bcd178cb880806eb7e712d1bd96a61df23f6'
+  Kits:
+    Head: 'http://textures.minecraft.net/texture/bc38550b5dac9efafa889945aec3bcd178cb880806eb7e712d1bd96a61df23f6'
+    Farmer: 'http://textures.minecraft.net/texture/bc38550b5dac9efafa889945aec3bcd178cb880806eb7e712d1bd96a61df23f6'
+    Keys: 'http://textures.minecraft.net/texture/bc38550b5dac9efafa889945aec3bcd178cb880806eb7e712d1bd96a61df23f6'
+    Enchanter: 'http://textures.minecraft.net/texture/bc38550b5dac9efafa889945aec3bcd178cb880806eb7e712d1bd96a61df23f6'
+    Preview: 'http://textures.minecraft.net/texture/bc38550b5dac9efafa889945aec3bcd178cb880806eb7e712d1bd96a61df23f6'
+  Keys:
+    Preview: 'http://textures.minecraft.net/texture/bc38550b5dac9efafa889945aec3bcd178cb880806eb7e712d1bd96a61df23f6'
+  Andet:
+    Preview: 'http://textures.minecraft.net/texture/bc38550b5dac9efafa889945aec3bcd178cb880806eb7e712d1bd96a61df23f6'
+    Vagt: 'http://textures.minecraft.net/texture/bc38550b5dac9efafa889945aec3bcd178cb880806eb7e712d1bd96a61df23f6'
+Rabat:
+  Ranks: 0
+  Kits: 0
+  Keys: 0
+  Andet: 0
+Prices:
+  Mint: 5000
+  Slik: 3500
+  Twix: 1000
+  Vagt: 10000
+  KitEnchanter: 4000
+  KitHead: 5000
+  KitFarmer: 3000
+  KitKeys: 3500
+  KeyMint: 100
+  KeyRedstone: 100
+  KeyLapis: 100
+Vagtpenge: 35000
