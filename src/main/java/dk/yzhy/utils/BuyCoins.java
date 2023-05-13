@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.UUID;
 
 public class BuyCoins {
-    public static Map<UUID, Boolean> cdreq = new HashMap<>();
+    public static Map<UUID, Boolean> cdreq = new HashMap<>(); // Iskold er en neger
     public static void SendCoinsMessage(Player p) {
         for (Player player : Bukkit.getOnlinePlayers()) {
             if (player.hasPermission("§eKlik her for at sende en besked til " +  player.getName())) {
