@@ -1,12 +1,20 @@
 Prefix: '&e&lBUTIK'
 ChatPrefix: '&8&l[ &e&lBUTIK &8&l]'
 CoinPrefix: '&8&l[ &e&lCOINS &8&l]'
+AntalVipCeller: 0
+
+WebHook:
+  Url: '' #Sæt din webhook URL ind her.
+  LogCoins: true
+  LogButik: true
+  LogBuyCoins: true
 Heads:
   Ranks:
     Preview: 'http://textures.minecraft.net/texture/bc38550b5dac9efafa889945aec3bcd178cb880806eb7e712d1bd96a61df23f6'
     Twix: 'http://textures.minecraft.net/texture/bc38550b5dac9efafa889945aec3bcd178cb880806eb7e712d1bd96a61df23f6'
     Slik: 'http://textures.minecraft.net/texture/bc38550b5dac9efafa889945aec3bcd178cb880806eb7e712d1bd96a61df23f6'
     Mint: 'http://textures.minecraft.net/texture/bc38550b5dac9efafa889945aec3bcd178cb880806eb7e712d1bd96a61df23f6'
+    Mint+: 'http://textures.minecraft.net/texture/bc38550b5dac9efafa889945aec3bcd178cb880806eb7e712d1bd96a61df23f6'
   Kits:
     Head: 'http://textures.minecraft.net/texture/bc38550b5dac9efafa889945aec3bcd178cb880806eb7e712d1bd96a61df23f6'
     Farmer: 'http://textures.minecraft.net/texture/bc38550b5dac9efafa889945aec3bcd178cb880806eb7e712d1bd96a61df23f6'
@@ -18,12 +26,16 @@ Heads:
   Andet:
     Preview: 'http://textures.minecraft.net/texture/bc38550b5dac9efafa889945aec3bcd178cb880806eb7e712d1bd96a61df23f6'
     Vagt: 'http://textures.minecraft.net/texture/bc38550b5dac9efafa889945aec3bcd178cb880806eb7e712d1bd96a61df23f6'
+    Battlepass: 'http://textures.minecraft.net/texture/bc38550b5dac9efafa889945aec3bcd178cb880806eb7e712d1bd96a61df23f6'
 Rabat:
   Ranks: 0
   Kits: 0
   Keys: 0
   Andet: 0
 Prices:
+  Battlepass: 2500
+  VipCelle: 8000
+  Mint+: 7500
   Mint: 5000
   Slik: 3500
   Twix: 1000

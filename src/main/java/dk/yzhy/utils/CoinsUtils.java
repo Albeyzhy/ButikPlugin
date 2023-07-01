@@ -4,18 +4,22 @@ import dk.yzhy.Butik;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+import java.util.logging.Level;
 
 public class CoinsUtils {
     public static Map<UUID, Long> coins = new HashMap<>();
 
-    static public void setCoins(OfflinePlayer p, Long a) {
+    static public void setCoins(OfflinePlayer p, Long a){
         coins.put(p.getUniqueId(), a);
-        System.out.println("[Butik] Spilleren " + p.getName() + "'s coins blev sat til " + a);
+        if (Boolean.parseBoolean(ConfigManager.getString("WebHook.LogCoins"))) {
+            System.out.println("[Butik] Spilleren " + p.getName() + "'s coins blev sat til " + a);
+        }
     }
-    static public void addCoins(OfflinePlayer p, Long a) {
+    static public void addCoins(OfflinePlayer p, Long a){
         UUID uuid = p.getUniqueId();
         Long antal = a;
         if (coins.containsKey(uuid)) {
@@ -24,9 +28,11 @@ public class CoinsUtils {
             antal = Butik.CoinDataYML.getLong("Konti." + uuid) + a;
         }
         coins.put(uuid, antal);
-        System.out.println("[Butik] Spilleren " + p.getName() + " fik tilføjet " + a + " coins");
+        if (Boolean.parseBoolean(ConfigManager.getString("WebHook.LogCoins"))) {
+            System.out.println("[Butik] Spilleren " + p.getName() + " fik tilføjet " + a + " coins");
+        }
     }
-    static public void removeCoins(OfflinePlayer p, Long a) {
+    static public void removeCoins(OfflinePlayer p, Long a){
         UUID uuid = p.getUniqueId();
         Long antal = a;
         if (coins.containsKey(uuid)) {
@@ -35,7 +41,9 @@ public class CoinsUtils {
             antal = Butik.CoinDataYML.getLong("Konti." + uuid) - a;
         }
         coins.put(uuid, antal);
-        System.out.println("[Butik] Spilleren " + p.getName() + " fik fjernet " + a + " coins");
+        if (Boolean.parseBoolean(ConfigManager.getString("WebHook.LogCoins"))) {
+            System.out.println("[Butik] Spilleren " + p.getName() + " fik fjernet " + a + " coins");
+        }
     }
     static public Long getCoins(OfflinePlayer p) {
         UUID uuid = p.getUniqueId();

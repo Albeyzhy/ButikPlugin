@@ -4,6 +4,7 @@ import dk.yzhy.commands.Buy;
 import dk.yzhy.commands.Coins;
 import dk.yzhy.listeners.Chat;
 import dk.yzhy.listeners.Join;
+import dk.yzhy.listeners.LogOut;
 import dk.yzhy.task.SaveCoins;
 import dk.yzhy.utils.CoinsUtils;
 import dk.yzhy.utils.Config;
@@ -13,13 +14,10 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-
 public final class Butik extends JavaPlugin {
-    public static Map<String, String> config = new HashMap<>();
     public static Config CoinData, mainConfig;
     public static FileConfiguration CoinDataYML, mainConfigYML;
     public static Butik instance;
@@ -32,7 +30,7 @@ public final class Butik extends JavaPlugin {
         System.out.println("[Butik] Butik plugin loaded!");
         register();
         LoadYAML();
-        Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new SaveCoins(), 12000, 12000);
+        Bukkit.getScheduler().scheduleAsyncRepeatingTask(this, new SaveCoins(), 12000, 12000);
     }
 
     @Override
@@ -55,6 +53,7 @@ public final class Butik extends JavaPlugin {
     }
     private void register() {
         getServer().getPluginManager().registerEvents(new Join(), this);
+        getServer().getPluginManager().registerEvents(new LogOut(), this);
         getServer().getPluginManager().registerEvents(new Chat(), this);
         this.getCommand("buy").setExecutor(new Buy());
         this.getCommand("coins").setExecutor(new Coins());

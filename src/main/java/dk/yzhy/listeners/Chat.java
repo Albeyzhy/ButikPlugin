@@ -3,7 +3,6 @@ package dk.yzhy.listeners;
 import dk.yzhy.Butik;
 import dk.yzhy.utils.ConfigManager;
 import dk.yzhy.utils.HandleBuy;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

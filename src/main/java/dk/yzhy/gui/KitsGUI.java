@@ -56,20 +56,20 @@ public class KitsGUI {
             MainGUI.GUI(p);
         }));
         gui.setItem(19, ItemBuilder.from(GetHead.getHead(ConfigManager.getString("Heads.Kits.Head"))).name(Component.text("§4§lKIT HEAD")).setLore("", PriceForKitHead, "", "§8§l▎ §7I kit §4Head§7, har du", "§8§l▎ §75% chance for at få head hver dag.", "", "§8§l【 §7Klik for at købe. §8§l】").asGuiItem(event -> {
-            HandleBuy.BuyProductKit("KitHead", p);
             p.playSound(p.getLocation(), Sound.CLICK, 1, 10);
+            HandleBuy.BuyProductKit("KitHead", p);
         }));
         gui.setItem(21, ItemBuilder.from(GetHead.getHead(ConfigManager.getString("Heads.Kits.Farmer"))).name(Component.text("§6§lKIT FARMER")).setLore("", PriceForKitFarmer, "", "§8§l▎ §7I kit §6Farmer§7, får du", "§8§l▎ §7bread, wheat og chance for diamonds.", "", "§8§l【 §7Klik for at købe. §8§l】").asGuiItem(event -> {
+            p.playSound(p.getLocation(), Sound.CLICK, 1, 10);
             HandleBuy.BuyProductKit("KitFarmer", p);
-            p.playSound(p.getLocation(), Sound.CLICK, 1, 10);
         }));
-        gui.setItem(23, ItemBuilder.from(GetHead.getHead(ConfigManager.getString("Heads.Kits.Enchanter"))).name(Component.text("§9§lKIT ENCHANTER")).setLore("", PriceForKitEnchanter, "", "§8§l▎ §7I kit §9Enchanter§7, får du", "§8§l▎ §7lapis, exp bottles, diamonds og chance for anvil.", "", "§8§l【 §7Klik for at købe. §8§l】").asGuiItem(event -> {
-            HandleBuy.BuyProductKit("KitEnchanter", p);
+        gui.setItem(23, ItemBuilder.from(GetHead.getHead(ConfigManager.getString("Heads.Kits.Enchanter"))).name(Component.text("§9§lKIT ENCHANTER")).setLore("", PriceForKitEnchanter, "", "§8§l▎ §7I kit §9Enchanter§7, får du", "§8§l▎ §7lapis, exp bottles og diamonds.", "", "§8§l【 §7Klik for at købe. §8§l】").asGuiItem(event -> {
             p.playSound(p.getLocation(), Sound.CLICK, 1, 10);
+            HandleBuy.BuyProductKit("KitEnchanter", p);
         }));
         gui.setItem(25, ItemBuilder.from(GetHead.getHead(ConfigManager.getString("Heads.Kits.Keys"))).name(Component.text("§c§lKIT KEYS")).setLore("", PriceForKitKeys, "", "§8§l▎ §7I kit §cKeys§7, får du", "§8§l▎ §7jern, guld, diamond, twix, slik og chance for mint keys.", "", "§8§l【 §7Klik for at købe. §8§l】").asGuiItem(event -> {
-            HandleBuy.BuyProductKit("KitKeys", p);
             p.playSound(p.getLocation(), Sound.CLICK, 1, 10);
+            HandleBuy.BuyProductKit("KitKeys", p);
         }));
         gui.open(p);
 }}
