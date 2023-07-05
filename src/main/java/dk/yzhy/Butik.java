@@ -2,6 +2,7 @@ package dk.yzhy;
 
 import dk.yzhy.commands.Buy;
 import dk.yzhy.commands.Coins;
+import dk.yzhy.listeners.Betaling;
 import dk.yzhy.listeners.Chat;
 import dk.yzhy.listeners.Join;
 import dk.yzhy.listeners.LogOut;
@@ -55,6 +56,7 @@ public final class Butik extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new Join(), this);
         getServer().getPluginManager().registerEvents(new LogOut(), this);
         getServer().getPluginManager().registerEvents(new Chat(), this);
+        getServer().getPluginManager().registerEvents(new Betaling(), this);
         this.getCommand("buy").setExecutor(new Buy());
         this.getCommand("coins").setExecutor(new Coins());
     }
