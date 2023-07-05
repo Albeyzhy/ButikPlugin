@@ -16,7 +16,7 @@ public class FreeCoins{
             @Override
             public void run() {
                 if(p.hasMetadata("SessionID") && Objects.equals(p.getMetadata("SessionID").get(0).asString(), SessionID.toString())) {
-                    CoinsUtils.addCoins(p, 10L);
+                    CoinsUtils.addCoins(p, 10D);
                     p.sendMessage("§e§l[!] §7Du modtog 10 coins for at være online!");
                 }else{cancel();}
             }

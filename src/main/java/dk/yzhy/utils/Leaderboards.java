@@ -12,7 +12,7 @@ import java.util.concurrent.Executors;
 public class Leaderboards {
     public static ExecutorService executorService;
     public static void print(Player p) {
-        Map<UUID, Long> LB = new HashMap<>();
+        Map<UUID, Double> LB = new HashMap<>();
         p.sendMessage("§7Loader leaderboards ind, dette kan tage flere minutter. (Async)");
         executorService = Executors.newFixedThreadPool(1);
         executorService.submit(() -> {
@@ -20,12 +20,12 @@ public class Leaderboards {
                 if(!Objects.equals(path, "Konti")) {
                     Long antal = Butik.CoinDataYML.getLong(path);
                     UUID player = UUID.fromString(path.replaceAll("Konti.", ""));
-                    LB.put(player, antal);
+                    LB.put(player, Double.valueOf(antal));
                 }
             }
             LB.putAll(CoinsUtils.coins);
             // Leaderboard udregning:
-            ArrayList<Map.Entry<UUID, Long>> LBA = new ArrayList<>(LB.entrySet());
+            ArrayList<Map.Entry<UUID, Double>> LBA = new ArrayList<>(LB.entrySet());
             LBA.sort(Map.Entry.comparingByValue());
             Collections.reverse(LBA);
             for(int i = 1; i <= 10; i++){

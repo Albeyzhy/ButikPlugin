@@ -46,7 +46,7 @@ public final class Butik extends JavaPlugin {
         }
     }
     public static void SaveToYAML() {
-        for (Map.Entry<UUID, Long> set : CoinsUtils.coins.entrySet()) {
+        for (Map.Entry<UUID, Double> set : CoinsUtils.coins.entrySet()) {
             Butik.CoinDataYML.set("Konti." + set.getKey(), set.getValue());
         }
         Butik.CoinData.saveConfig();

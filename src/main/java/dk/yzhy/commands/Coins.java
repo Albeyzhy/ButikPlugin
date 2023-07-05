@@ -55,14 +55,14 @@ public class Coins implements CommandExecutor {
             if (args.length >= 3) {
                 OfflinePlayer offlineplayer = Bukkit.getOfflinePlayer(args[1]);
                 if (offlineplayer.hasPlayedBefore() || offlineplayer.isOnline()) {
-                    long antal = Long.parseLong(args[2]);
+                    Double antal = Double.parseDouble(args[2]);
                     if (antal > 0) {
                         CoinsUtils.addCoins(offlineplayer, antal);
                         p.sendMessage(ConfigManager.getCoinPrefix());
                         p.sendMessage(" §7Tilføjet §f" + antal + "§7 coins til spilleren §f" + offlineplayer.getName() + "§7!");
                         if (args[0].equalsIgnoreCase("b+")) {
                             Bukkit.broadcastMessage(ConfigManager.getChatPrefix());
-                            Bukkit.broadcastMessage("§7 Spilleren §f" + offlineplayer.getName() + "§7 købte lige§f " + antal + "§7 coins!");
+                            Bukkit.broadcastMessage("§7 Spilleren §f" + offlineplayer.getName() + "§7 købte lige§f " + Math.round(antal) + "§7 coins!");
                             if (Boolean.parseBoolean(ConfigManager.getString("WebHook.LogBuyCoins"))) {
                                 System.out.println("[Butik] Spilleren " + offlineplayer.getName() + " købte " + antal + " coins af " + p.getName() + "!");
                             }
@@ -83,7 +83,7 @@ public class Coins implements CommandExecutor {
             if (args.length >= 3) {
                 OfflinePlayer offlineplayer = Bukkit.getOfflinePlayer(args[1]);
                 if (offlineplayer.hasPlayedBefore() || offlineplayer.isOnline()) {
-                    long antal = Long.parseLong(args[2]);
+                    Double antal = Double.parseDouble(args[2]);
                     if (antal > 0) {
                         CoinsUtils.removeCoins(offlineplayer, antal);
                         p.sendMessage(ConfigManager.getCoinPrefix());
@@ -104,7 +104,7 @@ public class Coins implements CommandExecutor {
             if (args.length >= 3) {
                 OfflinePlayer offlineplayer = Bukkit.getOfflinePlayer(args[1]);
                 if (offlineplayer.hasPlayedBefore() || offlineplayer.isOnline()) {
-                    long antal = Long.parseLong(args[2]);
+                    Double antal = Double.parseDouble(args[2]);
                     if (antal >= 0) {
                         CoinsUtils.setCoins(offlineplayer, antal);
                         p.sendMessage(ConfigManager.getCoinPrefix());
@@ -127,7 +127,7 @@ public class Coins implements CommandExecutor {
             if (args.length >= 3) {
                 OfflinePlayer offlineplayer = Bukkit.getOfflinePlayer(args[1]);
                 if ((offlineplayer.hasPlayedBefore() || offlineplayer.isOnline()) && !offlineplayer.equals(p)) {
-                    long antal = Long.parseLong(args[2]);
+                    Double antal = Double.parseDouble(args[2]);
                     if (antal > 0) {
                         if (CoinsUtils.getCoins(p) >= antal) {
                             CoinsUtils.addCoins(offlineplayer, antal);

@@ -11,17 +11,17 @@ import java.util.UUID;
 import java.util.logging.Level;
 
 public class CoinsUtils {
-    public static Map<UUID, Long> coins = new HashMap<>();
+    public static Map<UUID, Double> coins = new HashMap<>();
 
-    static public void setCoins(OfflinePlayer p, Long a){
+    static public void setCoins(OfflinePlayer p, Double a){
         coins.put(p.getUniqueId(), a);
         if (Boolean.parseBoolean(ConfigManager.getString("WebHook.LogCoins"))) {
             System.out.println("[Butik] Spilleren " + p.getName() + "'s coins blev sat til " + a);
         }
     }
-    static public void addCoins(OfflinePlayer p, Long a){
+    static public void addCoins(OfflinePlayer p, Double a){
         UUID uuid = p.getUniqueId();
-        Long antal = a;
+        Double antal = a;
         if (coins.containsKey(uuid)) {
             antal = coins.get(uuid) + a;
         } else if (Butik.CoinDataYML.get("Konti." + uuid) != null) {
@@ -32,9 +32,9 @@ public class CoinsUtils {
             System.out.println("[Butik] Spilleren " + p.getName() + " fik tilføjet " + a + " coins");
         }
     }
-    static public void removeCoins(OfflinePlayer p, Long a){
+    static public void removeCoins(OfflinePlayer p, Double a){
         UUID uuid = p.getUniqueId();
-        Long antal = a;
+        Double antal = a;
         if (coins.containsKey(uuid)) {
             antal = coins.get(uuid) - a;
         } else if (Butik.CoinDataYML.get("Konti." + uuid) != null) {
@@ -45,14 +45,14 @@ public class CoinsUtils {
             System.out.println("[Butik] Spilleren " + p.getName() + " fik fjernet " + a + " coins");
         }
     }
-    static public Long getCoins(OfflinePlayer p) {
+    static public Double getCoins(OfflinePlayer p) {
         UUID uuid = p.getUniqueId();
         if (coins.containsKey(uuid)) {
             return coins.get(uuid);
         } else if (Butik.CoinDataYML.get("Konti." + uuid) != null) {
-            return Butik.CoinDataYML.getLong("Konti." + uuid);
+            return Butik.CoinDataYML.getDouble("Konti." + uuid);
         } else {
-            return 0L;
+            return 0D;
         }
     }
 }

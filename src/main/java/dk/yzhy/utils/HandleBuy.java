@@ -39,7 +39,7 @@ public class HandleBuy {
                     Bukkit.broadcastMessage(ConfigManager.getChatPrefix());
                     Bukkit.broadcastMessage(" §7Spilleren §f" + p.getName() + " §7købte lige §b§lMINT§3§l+§7 rank!");
                     p.closeInventory();
-                    CoinsUtils.removeCoins(p, PriceForMintPlus);
+                    CoinsUtils.removeCoins(p, Double.valueOf(PriceForMintPlus));
                     p.sendMessage(ConfigManager.getChatPrefix());
                     p.sendMessage("§7 Du har nu købt ranken mint+, og du fik fjernet §f" + PriceForMintPlus + "§7 coins fra dig.");
                     Console.send("lp user " + p.getName() + " group set mint+");
@@ -66,7 +66,7 @@ public class HandleBuy {
                     Bukkit.broadcastMessage(ConfigManager.getChatPrefix());
                     Bukkit.broadcastMessage(" §7Spilleren §f" + p.getName() + " §7købte lige §b§lMINT§7 rank!");
                     p.closeInventory();
-                    CoinsUtils.removeCoins(p, PriceForMint);
+                    CoinsUtils.removeCoins(p, Double.valueOf(PriceForMint));
                     p.sendMessage(ConfigManager.getChatPrefix());
                     p.sendMessage("§7 Du har nu købt ranken mint, og du fik fjernet §f" + PriceForMint + "§7 coins fra dig.");
                     Console.send("lp user " + p.getName() + " group set mint");
@@ -91,7 +91,7 @@ public class HandleBuy {
                     Bukkit.broadcastMessage(ConfigManager.getChatPrefix());
                     Bukkit.broadcastMessage(" §7Spilleren §f" + p.getName() + " §7købte lige §6§lSLIK§7 rank!");
                     p.closeInventory();
-                    CoinsUtils.removeCoins(p, PriceForSlik);
+                    CoinsUtils.removeCoins(p, Double.valueOf(PriceForSlik));
                     p.sendMessage(ConfigManager.getChatPrefix());
                     p.sendMessage("§7 Du har nu købt ranken slik, og du fik fjernet§f " + PriceForSlik + "§7 coins fra dig.");
                     Console.send("lp user " + p.getName() + " group set slik");
@@ -113,7 +113,7 @@ public class HandleBuy {
                     Bukkit.broadcastMessage(ConfigManager.getChatPrefix());
                     Bukkit.broadcastMessage(" §7Spilleren §f" + p.getName() + " §7købte lige §a§lTWIX§7 rank!");
                     p.closeInventory();
-                    CoinsUtils.removeCoins(p, PriceForTwix);
+                    CoinsUtils.removeCoins(p, Double.valueOf(PriceForTwix));
                     p.sendMessage(ConfigManager.getChatPrefix());
                     p.sendMessage("§7 Du har nu købt ranken twix, og du fik fjernet§f " + PriceForTwix + "§7 coins fra dig.");
                     Console.send("lp user " + p.getName() + " group set twix");
@@ -139,7 +139,7 @@ public class HandleBuy {
                             Bukkit.broadcastMessage(ConfigManager.getChatPrefix());
                             Bukkit.broadcastMessage(" §7Spilleren §f" + p.getName() + " §7købte lige §e§lVAGT§7 rank!");
                             p.closeInventory();
-                            CoinsUtils.removeCoins(p, PriceForVagt);
+                            CoinsUtils.removeCoins(p, Double.valueOf(PriceForVagt));
                             p.sendMessage(ConfigManager.getChatPrefix());
                             p.sendMessage("§7 Du har nu købt vagt, og du fik fjernet §f" + PriceForVagt + "§7 coins fra dig.");
                             Console.send("lp user " + p.getName() + " group set vagt");
@@ -174,7 +174,7 @@ public class HandleBuy {
             if (!p.hasPermission("essentials.kits.head")) {
                 PriceForKitHead = Math.round((ConfigManager.getInt("Prices.KitHead")) - ((double) (ConfigManager.getInt("Prices.KitHead")) / 100 * (ConfigManager.getInt("Rabat.Kits"))));
                 if (CoinsUtils.getCoins(p) >= PriceForKitHead) {
-                    CoinsUtils.removeCoins(p, PriceForKitHead);
+                    CoinsUtils.removeCoins(p, Double.valueOf(PriceForKitHead));
                     p.sendMessage(ConfigManager.getChatPrefix());
                     p.sendMessage("§7 Du har nu købt kit head, og du fik fjernet §f" + PriceForKitHead + " §7coins fra dig.");
                     Console.send("lp user " + p.getName() + " permission set essentials.kits.head true");
@@ -196,7 +196,7 @@ public class HandleBuy {
             if (!p.hasPermission("essentials.kits.farmer")) {
                 PriceForKitFarmer = Math.round((ConfigManager.getInt("Prices.KitFarmer")) - ((double) (ConfigManager.getInt("Prices.KitFarmer")) / 100 * (ConfigManager.getInt("Rabat.Kits"))));
                 if (CoinsUtils.getCoins(p) >= PriceForKitFarmer) {
-                    CoinsUtils.removeCoins(p, PriceForKitFarmer);
+                    CoinsUtils.removeCoins(p, Double.valueOf(PriceForKitFarmer));
                     p.sendMessage(ConfigManager.getChatPrefix());
                     p.sendMessage(" §7Du har nu købt kit farmer, og du fik fjernet§f " + PriceForKitFarmer + "§7 coins fra dig.");
                     Console.send("lp user " + p.getName() + " permission set essentials.kits.farmer true");
@@ -218,7 +218,7 @@ public class HandleBuy {
             if (!p.hasPermission("essentials.kits.keys")) {
                 PriceForKitKeys = Math.round((ConfigManager.getInt("Prices.KitKeys")) - ((double) (ConfigManager.getInt("Prices.KitKeys")) / 100 * (ConfigManager.getInt("Rabat.Kits"))));
                 if (CoinsUtils.getCoins(p) >= PriceForKitKeys) {
-                    CoinsUtils.removeCoins(p, PriceForKitKeys);
+                    CoinsUtils.removeCoins(p, Double.valueOf(PriceForKitKeys));
                     p.sendMessage(ConfigManager.getChatPrefix());
                     p.sendMessage("§7 Du har nu købt kit keys, og du fik fjernet §f" + PriceForKitKeys + "§7 coins fra dig.");
                     Console.send("lp user " + p.getName() + " permission set essentials.kits.keys true");
@@ -240,7 +240,7 @@ public class HandleBuy {
             if (!p.hasPermission("essentials.kits.enchanter")) {
                 PriceForKitEnchanter = Math.round((ConfigManager.getInt("Prices.KitEnchanter")) - ((double) (ConfigManager.getInt("Prices.KitEnchanter")) / 100 * (ConfigManager.getInt("Rabat.Kits"))));
                 if (CoinsUtils.getCoins(p) >= PriceForKitEnchanter) {
-                    CoinsUtils.removeCoins(p, PriceForKitEnchanter);
+                    CoinsUtils.removeCoins(p, Double.valueOf(PriceForKitEnchanter));
                     p.sendMessage(ConfigManager.getChatPrefix());
                     p.sendMessage("§7 Du har nu købt kit enchanter, og du fik fjernet §f" + PriceForKitEnchanter + "§7 coins fra dig.");
                     Console.send("lp user " + p.getName() + " permission set essentials.kits.enchanter true");
@@ -263,7 +263,7 @@ public class HandleBuy {
     public static void BuyProductKey(String s, Player p, Integer a) {
         Long Price = ((ConfigManager.getInt("Prices.Key" + s) - ((long) (ConfigManager.getInt("Prices.Key" + s) / 100) * ConfigManager.getInt("Rabat.Keys")))*a);
         if (CoinsUtils.getCoins(p) >= Price) {
-            CoinsUtils.removeCoins(p,  Price);
+            CoinsUtils.removeCoins(p, Double.valueOf(Price));
             p.sendMessage(ConfigManager.getChatPrefix());
             p.sendMessage("§7 Du har nu købt " + a + "x " + s + " keys, og du fik fjernet §f" + Price + "§7 coins fra dig.");
             Console.send("cc give p " + s + " " + a + " " + p.getName());
@@ -282,7 +282,7 @@ public class HandleBuy {
             Long Price = ((ConfigManager.getInt("Prices.VipCelle") - ((long) (ConfigManager.getInt("Prices.VipCelle") / 100) * ConfigManager.getInt("Rabat.Andet"))));
             if (CoinsUtils.getCoins(p) >= Price) {
                 p.closeInventory();
-                CoinsUtils.removeCoins(p,  Price);
+                CoinsUtils.removeCoins(p, Double.valueOf(Price));
                 p.sendMessage(ConfigManager.getChatPrefix());
                 p.sendMessage("§7 Du har nu købt en vip celle, og du fik fjernet §f" + Price + "§7 coins fra dig.");
                 Console.send("lp user " + p.getName() + " permission set cells.rent.vipcelle true");
@@ -305,7 +305,7 @@ public class HandleBuy {
             Long Price = ((ConfigManager.getInt("Prices.Battlepass") - ((long) (ConfigManager.getInt("Prices.Battlepass") / 100) * ConfigManager.getInt("Rabat.Andet"))));
             if (CoinsUtils.getCoins(p) >= Price) {
                 p.closeInventory();
-                CoinsUtils.removeCoins(p,  Price);
+                CoinsUtils.removeCoins(p, Double.valueOf(Price));
                 p.sendMessage(ConfigManager.getChatPrefix());
                 p.sendMessage("§7 Du har nu købt battlepasset, og du fik fjernet §f" + Price + "§7 coins fra dig.");
                 Console.send("lp user " + p.getName() + " permission set battlepass.premium true");

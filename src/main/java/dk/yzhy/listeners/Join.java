@@ -12,11 +12,11 @@ import java.util.UUID;
 
 public class Join implements Listener {
     @EventHandler
-    public void ChatEvent(PlayerJoinEvent event) {
+    public void JoinEvent(PlayerJoinEvent event) {
         UUID uuid = event.getPlayer().getUniqueId();
         if (!CoinsUtils.coins.containsKey(uuid)) {
             if (Butik.CoinDataYML.contains("Konti." + uuid)) {
-                CoinsUtils.coins.put(uuid, (Butik.CoinDataYML.getLong("Konti." + uuid)));
+                CoinsUtils.coins.put(uuid, (Butik.CoinDataYML.getDouble("Konti." + uuid)));
             }
         }
         FreeCoins.start(event.getPlayer());
