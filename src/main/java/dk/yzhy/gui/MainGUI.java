@@ -29,8 +29,7 @@ public class MainGUI {
             event.getWhoClicked().closeInventory();
             p.playSound(p.getLocation(), Sound.CLICK, 1, 10);
         }));
-        gui.setItem(4, ItemBuilder.from(Material.GOLD_NUGGET).name(Component.text("§e§lKØB COINS")).setLore("", "§8§l▎ §7Her kan du anmode", "§8§l▎ §7om at købe coins.", "§8§l▎ §71 em = 1 coin", "", "§8» §7Dine coins: §f" + CoinsUtils.getCoins(p), "", "§8§l【 §7Højre klik for at anmode med staff. §8§l】", "§8§l【 §7Højre klik for at anmode med unikpay. §8§l】").asGuiItem(event -> {
-
+        gui.setItem(4, ItemBuilder.from(Material.GOLD_NUGGET).name(Component.text("§e§lKØB COINS")).setLore("", "§8§l▎ §7Her kan du anmode", "§8§l▎ §7om at købe coins.", "§8§l▎ §71 em = 1 coin", "", "§8» §7Dine coins: §f" + CoinsUtils.getCoins(p), "", "§8§l【 §7Højreklik for bruge staff/paybot. §8§l】", "§8§l【 §7Højre klik for at bruge §2§lUNIKPAY§7. §8§l】").asGuiItem(event -> {
             if(event.isLeftClick()) {
                 BuyCoins.SendCoinsMessage(p);
                 p.closeInventory();

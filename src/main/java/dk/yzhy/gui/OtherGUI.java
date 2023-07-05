@@ -2,6 +2,7 @@ package dk.yzhy.gui;
 
 import dev.triumphteam.gui.builder.item.ItemBuilder;
 import dev.triumphteam.gui.guis.Gui;
+import dk.yzhy.Butik;
 import dk.yzhy.utils.*;
 import me.clip.placeholderapi.PlaceholderAPI;
 import net.kyori.adventure.text.Component;
@@ -9,6 +10,8 @@ import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.metadata.FixedMetadataValue;
+
 public class OtherGUI {
     static String PriceForVagt;
     static String PriceForVipCelle;
@@ -38,12 +41,19 @@ public class OtherGUI {
                 .create();
         gui.getFiller().fillTop(ItemBuilder.from(new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 1)).name(Component.text("§f")).asGuiItem());
         gui.getFiller().fillBottom(ItemBuilder.from(new ItemStack(Material.STAINED_GLASS_PANE)).name(Component.text("§f")).asGuiItem());
-        gui.setItem(4, ItemBuilder.from(Material.GOLD_NUGGET).name(Component.text("§e§lKØB COINS")).setLore("", "§8§l▎ §7Her kan du anmode", "§8§l▎ §7om at købe coins.", "§8§l▎ §71 em = 1 coin", "", "§8» §7Dine coins: §f" + CoinsUtils.getCoins(p), "", "§8§l【 §7Klik for at anmode. §8§l】").asGuiItem(event -> {
-            BuyCoins.SendCoinsMessage(p);
-            p.closeInventory();
-            p.sendMessage(ConfigManager.getChatPrefix());
-            p.sendMessage("§7 En administrator eller højere vil snart kontakte dig, vent venligst.");
-            p.playSound(p.getLocation(), Sound.CLICK, 1, 10);
+        gui.setItem(4, ItemBuilder.from(Material.GOLD_NUGGET).name(Component.text("§e§lKØB COINS")).setLore("", "§8§l▎ §7Her kan du anmode", "§8§l▎ §7om at købe coins.", "§8§l▎ §71 em = 1 coin", "", "§8» §7Dine coins: §f" + CoinsUtils.getCoins(p), "", "§8§l【 §7Højreklik for bruge staff/paybot. §8§l】", "§8§l【 §7Højre klik for at bruge §2§lUNIKPAY§7. §8§l】").asGuiItem(event -> {
+            if(event.isLeftClick()) {
+                BuyCoins.SendCoinsMessage(p);
+                p.closeInventory();
+                p.sendMessage(ConfigManager.getChatPrefix());
+                p.sendMessage("§7 En administrator eller højere vil snart kontakte dig, vent venligst.");
+                p.playSound(p.getLocation(), Sound.CLICK, 1, 10);
+            } else if (event.isRightClick()) {
+                p.closeInventory();
+                p.sendMessage(ConfigManager.getChatPrefix());
+                p.sendMessage("§7 Skriv antal coins, du vil købe i chatten.");
+                p.setMetadata("BuyCoins", new FixedMetadataValue(Butik.getInstance(), true));
+            }
         }));
         ItemStack back = new ItemStack(Material.INK_SACK,1, (short) 1);
         gui.setItem(36, ItemBuilder.from(back).name(Component.text("§fTilbage.")).asGuiItem(event -> {
